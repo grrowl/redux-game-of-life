@@ -19,8 +19,8 @@ const actionHandlers = {
   [types.TICK]: (state, { payload }) => ({
     ...state,
     ticks: state.ticks + 1,
-    frameId: payload.frameId,
-    frameRate: calculateFrameRate(state.ticks + 1, state.startedAt, payload.now)
+    frameId: payload && payload.frameId,
+    frameRate: payload && calculateFrameRate(state.ticks + 1, state.startedAt, payload.now)
   })
 }
 

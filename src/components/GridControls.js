@@ -23,7 +23,7 @@ export default class GridControls extends Component {
           <button className='btn btn-success' onClick={this.random}>
             RANDOMIZE
           </button>
-          <button className='btn btn-default' disabled={!!profiler.frameId} onClick={actions.tick}>
+          <button className='btn btn-default' disabled={!!profiler.frameId} onClick={() => actions.tick()}>
             <i className='fa fa-fast-forward fa-lg'></i> NEXT
           </button>
           <ToggleButton label='AUTO' on={profiler.startedAt} onClick={this.toggleAutoplay(actions.tick)}/>
