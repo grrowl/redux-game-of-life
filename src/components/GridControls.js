@@ -57,7 +57,8 @@ export default class GridControls extends Component {
   }
 
   random () {
-    this.props.actions.random({ randomizer })
+    // Choose a random nubmer to use as the "seed" for this randomization action
+    this.props.actions.random({ seed: Math.random() })
   }
 
   start (tick) {

@@ -14,7 +14,7 @@ const actionHandlers = {
   [types.RESET]: (state) =>
     makeBlankGrid(GRID_SIZE, GRID_SIZE),
   [types.RANDOM]: (state, { payload }) =>
-    makeGrid(payload.randomizer, GRID_SIZE),
+    makeGrid(randomizer(payload.seed), GRID_SIZE),
   [types.TOGGLE]: (state, { payload }) =>
     toggle(payload.coordinates, payload.current, state)
 }
