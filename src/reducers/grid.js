@@ -7,7 +7,8 @@ import { randomizer } from '../lib/utils'
 
 const GRID_SIZE = 30
 
-const DEFAULT_STATE = makeGrid(randomizer, GRID_SIZE)
+// Initial state is a blank grid
+const DEFAULT_STATE = makeBlankGrid(GRID_SIZE, GRID_SIZE)
 
 const actionHandlers = {
   [types.TICK]: nextState,
