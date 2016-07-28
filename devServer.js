@@ -23,7 +23,7 @@ app.get('*', (req, res) => res.sendFile(path.join(__dirname, 'index.html')))
 
 dispatcher(server)
 
-server.listen(PORT, 'localhost', (err) => {
+server.listen(PORT, (err) => {
   if (err) {
     return console.log(err)
   }
