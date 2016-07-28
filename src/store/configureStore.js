@@ -1,11 +1,12 @@
 import { createStore, applyMiddleware } from 'redux'
 
 import rootReducer from '../reducers'
-import scuttlebutt from 'redux-scuttlebutt/lib'
+import scuttlebutt from 'redux-scuttlebutt'
 
 export default (initialState) => {
   const store = createStore(rootReducer, initialState,
-    applyMiddleware(scuttlebutt())
+    scuttlebutt(),
+    window.devToolsExtension && window.devToolsExtension()
   )
 
   if (module.hot) {

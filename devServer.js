@@ -3,14 +3,14 @@ const express = require('express')
 const http = require('http')
 const webpack = require('webpack')
 const config = require('./webpack.config.dev')
-const scuttlebutt = require('redux-scuttlebutt/lib/server').default
+
+const dispatcher = require('redux-scuttlebutt/lib/server').default
 
 const app = express()
 const server = http.Server(app)
 const compiler = webpack(config)
-const gossip = scuttlebutt(server)
 
-const PORT = 3000
+const PORT = process.env['PORT'] || 3000
 
 app.use(require('webpack-dev-middleware')(compiler, {
   noInfo: true,
@@ -20,6 +20,8 @@ app.use(require('webpack-dev-middleware')(compiler, {
 app.use(require('webpack-hot-middleware')(compiler))
 
 app.get('*', (req, res) => res.sendFile(path.join(__dirname, 'index.html')))
+
+dispatcher(server)
 
 server.listen(PORT, 'localhost', (err) => {
   if (err) {
