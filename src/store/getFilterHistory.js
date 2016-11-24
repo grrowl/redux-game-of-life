@@ -13,23 +13,16 @@ export default function getFilterHistory() {
       && sortUpdate(update, lastReset) < 0
       && update[UPDATE_TIMESTAMP]
     ) {
-      // console.log('let it go', update, lastReset[1], index, false)
       return false
     }
 
-    // if (Math.random() < 0.01) {
-    //   console.log(update, index, state)
-    // }
-
     if (update[UPDATE_ACTION]) {
-      if (update[UPDATE_ACTION].type === RESET /*|| update[UPDATE_ACTION].type === RANDOM*/) {
+      if (update[UPDATE_ACTION].type === RESET || update[UPDATE_ACTION].type === RANDOM) {
         lastReset = update
-        console.log('reset point found', update[UPDATE_ACTION].type, update[UPDATE_TIMESTAMP], state.length)
         return true
       }
     }
 
-    // return console.log('iltered', update, index, true) || true
     return true
   }
 }
