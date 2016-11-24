@@ -14,7 +14,6 @@ class App extends Component {
         <div>
           <Grid data={this.props.grid} toggle={this.props.actions.toggle}/>
         </div>
-        <ForkMeOnGithubRibbon />
       </div>
     )
   }

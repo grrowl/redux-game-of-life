@@ -8,8 +8,8 @@ Most notably, we've removed some features not designed to work with such a model
 and improved the purity of existing actions (for example, GridActions' RANDOM
 now includes a seed in the payload, so it can produce deterministic results)
 
-[Learn more about redux-scuttlebutt](https://medium.com/@grrowl/2346c51e3f39),
-or [get in touch](https://twitter.com/grrowl).
+[Learn more about redux-scuttlebutt](https://medium.com/@grrowl/redux-scuttlebutt-eventually-consistent-shared-state-among-peers-191d48102079),
+or [check out the repo](https://github.com/grrowl/redux-scuttlebutt).
 
 ----
 

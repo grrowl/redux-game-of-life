@@ -9,7 +9,7 @@ export default (initialState) => {
   const store = createStore(rootReducer, initialState,
     compose(
       scuttlebutt({
-        uri: 'http://localhost:3000',
+        uri: `${window.location.protocol}//${window.location.host}`,
         dispatcherOptions: {
           filterHistory: getFilterHistory()
         }
