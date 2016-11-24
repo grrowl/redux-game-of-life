@@ -8,9 +8,8 @@ const config = (
   : require('./webpack.config.prod')
 )
 
-
 const dispatcher = require('redux-scuttlebutt/lib/server').default
-const getFilterHistory = require('./src/store/getFilterHistory.es5')
+const getFilterHistory = require('./src/store/getFilterHistory').getFilterHistory
 
 const app = express()
 const server = http.Server(app)

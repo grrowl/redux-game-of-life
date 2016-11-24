@@ -3,7 +3,7 @@ import { createStore, applyMiddleware, compose } from 'redux'
 import rootReducer from '../reducers'
 import scuttlebutt from 'redux-scuttlebutt'
 
-import getFilterHistory from './getFilterHistory'
+import { getFilterHistory } from './getFilterHistory'
 
 export default (initialState) => {
   const store = createStore(rootReducer, initialState,

@@ -1,17 +1,27 @@
-import scuttlebutt, {
-  isGossipType, sortUpdate, UPDATE_ACTION, UPDATE_TIMESTAMP
-} from 'redux-scuttlebutt'
+// import scuttlebutt, {
+//   isGossipType, sortUpdate, UPDATE_ACTION, UPDATE_TIMESTAMP
+// } from 'redux-scuttlebutt'
 
-import { RESET, RANDOM } from '../constants/ActionTypes'
+const scuttlebutt = require('redux-scuttlebutt'),
+  isGossipType = scuttlebutt.isGossipType,
+  sortUpdate = scuttlebutt.sortUpdate,
+  UPDATE_ACTION = scuttlebutt.UPDATE_ACTION,
+  UPDATE_TIMESTAMP = scuttlebutt.UPDATE_TIMESTAMP
 
-export default function getFilterHistory() {
-  var lastReset = [, -Infinity]
+// import { RESET, RANDOM } from '../constants/ActionTypes'
+const RESET = 'RESET', RANDOM = 'RANDOM'
+
+// old-school exports so we can require it in browser or in node
+var exports = module.exports = {};
+exports.getFilterHistory = function getFilterHistory() {
+  var lastReset = [0, 0]
 
   return function filterHistory(update, index, state) {
     // if update is less than reset, and it's not the root action
     if (update !== lastReset
+      && update[UPDATE_TIMESTAMP] // don't trim bedrock values
+      && update[UPDATE_TIMESTAMP] !== lastReset[UPDATE_TIMESTAMP] // don't trim the reset
       && sortUpdate(update, lastReset) < 0
-      && update[UPDATE_TIMESTAMP]
     ) {
       return false
     }
