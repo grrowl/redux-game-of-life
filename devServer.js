@@ -5,6 +5,7 @@ const webpack = require('webpack')
 const config = require('./webpack.config.dev')
 
 const dispatcher = require('redux-scuttlebutt/lib/server').default
+const getFilterHistory = require('./src/store/getFilterHistory.es5')
 
 const app = express()
 const server = http.Server(app)
@@ -21,7 +22,9 @@ app.use(require('webpack-hot-middleware')(compiler))
 
 app.get('*', (req, res) => res.sendFile(path.join(__dirname, 'index.html')))
 
-dispatcher(server)
+dispatcher(server, {
+  filterHistory: getFilterHistory()
+})
 
 server.listen(PORT, (err) => {
   if (err) {

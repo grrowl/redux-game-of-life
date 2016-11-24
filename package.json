@@ -59,7 +59,7 @@
   "dependencies": {
     "react": "^0.14.3",
     "react-dom": "^0.14.3",
-    "redux-scuttlebutt": "0.0.1-beta.1",
+    "redux-scuttlebutt": "0.2.0",
     "scuttlebutt": "^5.6.14",
     "seedrandom": "^2.4.2",
     "ws": "^1.1.1"
