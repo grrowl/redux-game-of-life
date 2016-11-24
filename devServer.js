@@ -2,7 +2,12 @@ const path = require('path')
 const express = require('express')
 const http = require('http')
 const webpack = require('webpack')
-const config = require('./webpack.config.dev')
+const config = (
+  process.env['NODE_ENV'] === 'development'
+  ? require('./webpack.config.dev')
+  : require('./webpack.config.prod')
+)
+
 
 const dispatcher = require('redux-scuttlebutt/lib/server').default
 const getFilterHistory = require('./src/store/getFilterHistory.es5')
