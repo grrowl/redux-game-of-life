@@ -3,7 +3,7 @@ const express = require('express')
 const http = require('http')
 const webpack = require('webpack')
 const config = (
-  process.env['NODE_ENV'] === 'development'
+  process.env['NODE_ENV'] !== 'production'
   ? require('./webpack.config.dev')
   : require('./webpack.config.prod')
 )
